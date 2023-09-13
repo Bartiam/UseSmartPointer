@@ -2,10 +2,10 @@
 
 int main()
 {
-	std::shared_ptr<Toy> ball = std::make_shared<Toy>("Ball");
-	std::shared_ptr<Toy> bone = std::make_shared<Toy>("Bone");
-	std::shared_ptr<Toy> stick = std::make_shared<Toy>("Stick");
-
+	shared_ptr_toy ball = make_shared_ptr_toy("Ball");
+	shared_ptr_toy bone = make_shared_ptr_toy("Bone");
+	shared_ptr_toy stick = make_shared_ptr_toy("Stick");
+	 
 	Dog rex("Rex", 2.5f, bone);
 	Dog sharik("Sharik", 6.0f, stick);
 	Dog max("Max", 1.5f, ball);
@@ -16,6 +16,7 @@ int main()
 	pushok.getToy(bone);
 	max.dropToy();
 	rex.getToy(ball);
+	
 
 	return 0;
 }

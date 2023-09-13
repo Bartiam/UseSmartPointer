@@ -1,6 +1,6 @@
 #pragma once
 #include "Toy.h"
-#include <iostream>
+#include "shared_ptr_toy.h"
 
 class Dog
 {
@@ -9,7 +9,7 @@ private:
 	std::string name;
 	float age;
 	// Указатель на объект класса "Toy";
-	std::shared_ptr<Toy> toy;
+	shared_ptr_toy toyPtr;
 public:
 	// Прототип конструктора по умолчанию;
 	Dog();
@@ -20,9 +20,9 @@ public:
 	// Прототип конструктора устанавливающего имя и возраст собаки;
 	Dog(const std::string& name, const float& age);
 	// Прототип конструктора устанавливающего все параметры собаки;
-	Dog(const std::string& name, const float& age, std::shared_ptr<Toy> toy);
+	Dog(const std::string& name, const float& age, shared_ptr_toy toy);
 	// Прототип метода позволяющий бросить игрушку;
 	void dropToy();
 	// Прототип метода подобрать игрушку;
-	void getToy(const std::shared_ptr<Toy>& toy);
+	void getToy(shared_ptr_toy& toy);
 };

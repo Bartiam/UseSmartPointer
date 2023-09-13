@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.27.4)
 
 add_executable(${PROJECT_NAME} main.cpp ${MY_INCLUDE_DIR}/Dog.h Dog.cpp
-${MY_INCLUDE_DIR}/Toy.h Toy.cpp)
+${MY_INCLUDE_DIR}/Toy.h Toy.cpp ${MY_INCLUDE_DIR}/shared_ptr_toy.h shared_ptr_toy.cpp)
 target_include_directories(${PROJECT_NAME} PUBLIC ${MY_INCLUDE_DIR})
