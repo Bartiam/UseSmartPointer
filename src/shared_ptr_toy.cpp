@@ -1,18 +1,18 @@
-#include "shared_ptr_toy.h"
-// Реализация конструктора по умолчанию;
+п»ї#include "shared_ptr_toy.h"
+// Р РµР°Р»РёР·Р°С†РёСЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ;
 shared_ptr_toy::shared_ptr_toy() { toyPtr = nullptr; count = new int(1);}
-// Реализация приватного конструктора;
+// Р РµР°Р»РёР·Р°С†РёСЏ РїСЂРёРІР°С‚РЅРѕРіРѕ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР°;
 shared_ptr_toy::shared_ptr_toy(const std::string& name) { count = new int(1); toyPtr = new Toy(name); }
-// Реализация конструктора копирования;
+// Р РµР°Р»РёР·Р°С†РёСЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° РєРѕРїРёСЂРѕРІР°РЅРёСЏ;
 shared_ptr_toy::shared_ptr_toy(const shared_ptr_toy& other) 
 {
 	this->toyPtr = other.toyPtr;
 	this->count = other.count;
 	(*count)++;
 }
-// Реализация конструктора принимающий указатель на объект Toy;
+// Р РµР°Р»РёР·Р°С†РёСЏ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° РїСЂРёРЅРёРјР°СЋС‰РёР№ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РѕР±СЉРµРєС‚ Toy;
 shared_ptr_toy::shared_ptr_toy(Toy* toyPtr) { count = new int(1); this->toyPtr = toyPtr; }
-// Реализация деструктора класса;
+// Р РµР°Р»РёР·Р°С†РёСЏ РґРµСЃС‚СЂСѓРєС‚РѕСЂР° РєР»Р°СЃСЃР°;
 shared_ptr_toy::~shared_ptr_toy()
 {
 	(*count)--;
@@ -22,7 +22,7 @@ shared_ptr_toy::~shared_ptr_toy()
 		delete count;
 	}
 }
-// Реализация оператора присваивания;
+// Р РµР°Р»РёР·Р°С†РёСЏ РѕРїРµСЂР°С‚РѕСЂР° РїСЂРёСЃРІР°РёРІР°РЅРёСЏ;
 shared_ptr_toy& shared_ptr_toy::operator=(const shared_ptr_toy& other)
 {
 	if (this != &other)
@@ -36,20 +36,20 @@ shared_ptr_toy& shared_ptr_toy::operator=(const shared_ptr_toy& other)
 
 	return *this;
 }
-// Реализация оператора сравнения;
+// Р РµР°Р»РёР·Р°С†РёСЏ РѕРїРµСЂР°С‚РѕСЂР° СЃСЂР°РІРЅРµРЅРёСЏ;
 bool shared_ptr_toy::operator==(const shared_ptr_toy& other)
 {
 	if (this->toyPtr == other.toyPtr) return true;
 	else return false;
 }
-// Реализация оператора сравнения;
+// Р РµР°Р»РёР·Р°С†РёСЏ РѕРїРµСЂР°С‚РѕСЂР° СЃСЂР°РІРЅРµРЅРёСЏ;
 bool shared_ptr_toy::operator!=(const shared_ptr_toy& other)
 {
 	if (this->toyPtr != other.toyPtr) return true;
 	else return false;
 }
 std::string shared_ptr_toy::getName() {return toyPtr->getName();}
-// Реализация геттера;
+// Р РµР°Р»РёР·Р°С†РёСЏ РіРµС‚С‚РµСЂР°;
 int shared_ptr_toy::getCount() { return *count; }
-// Реализация функции создающей объект класса shared_ptr_toy;
+// Р РµР°Р»РёР·Р°С†РёСЏ С„СѓРЅРєС†РёРё СЃРѕР·РґР°СЋС‰РµР№ РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° shared_ptr_toy;
 shared_ptr_toy make_shared_ptr_toy(const std::string toyName) { return toyName; }
